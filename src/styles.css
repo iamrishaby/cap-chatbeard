@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English+SC&display=swap");
+
+:root {
+  --bg: #f8f1e4; /* parchment base */
+  --header: #3e2c1c;
+  --bot: #e6dcc5;
+  --user: #c48a3f;
+  --text: #2b1b0e;
+  --accent: #8b4513;
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "IM Fell English SC", serif;
+  background: var(--bg) url("https://www.transparenttextures.com/patterns/parchment.png");
+  background-size: cover;
+  color: var(--text);
+}
+
+.app-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-card {
+  background: #fffaf0cc;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(44, 27, 14, 0.18);
+  padding: 2rem 1.2rem;
+  max-width: 540px;
+  width: 100%;
+  min-height: 70vh;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+@media (max-width: 600px) {
+  .app-card {
+    max-width: 98vw;
+    min-height: 90vh;
+    height: 90vh;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+  }
+  .header {
+    font-size: 1.3rem;
+    padding: 0.7rem;
+  }
+  .msg {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.7rem;
+  }
+  .input-row input, .input-row button {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}
+
+
+/* Header with pirate font */
+.header {
+  background: var(--header);
+  padding: 1rem 0.5rem;
+  font-size: 1.7rem;
+  text-align: center;
+  border-bottom: 4px solid var(--accent);
+  font-family: "Pirata One", cursive;
+  color: #f5deb3;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px black;
+  word-break: break-word;
+}
+
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  height: 100%;
+}
+
+
+/* Scrollable chat area */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+/* Message bubbles styled like ink stains */
+.msg {
+  max-width: 80%;
+  margin: 0.5rem 0;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  line-height: 1.5;
+  font-size: 1.05rem;
+  font-weight: 500;
+  position: relative;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.18);
+  word-break: break-word;
+  text-align: left;
+}
+
+
+.msg.assistant {
+  background: var(--bot);
+  align-self: flex-start;
+  border: 2px solid #d2b48c;
+}
+
+.msg.user {
+  background: var(--user);
+  align-self: flex-end;
+  border: 2px solid #8b5a2b;
+  color: #fff8dc;
+}
+
+/* Input row */
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  border: 2px solid var(--accent);
+  outline: none;
+  font-size: 1rem;
+  background: #fffaf0;
+  font-family: "IM Fell English SC", serif;
+}
+
+.input-row button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--accent);
+  color: #fffaf0;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Pirata One", cursive;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.input-row button:hover:not(:disabled) {
+  background: #5a2e0c;
+  transform: scale(1.05);
+}
+
+.input-row button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
