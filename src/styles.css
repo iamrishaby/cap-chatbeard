@@ -34,8 +34,8 @@ body, html {
   padding: 2rem 1.2rem;
   max-width: 540px;
   width: 100%;
-  min-height: 70vh;
-  height: 70vh;
+  min-height: 85vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -56,7 +56,8 @@ body, html {
   }
   .msg {
     font-size: 0.95rem;
-    padding: 0.6rem 0.7rem;
+    padding: 0.7rem 1rem;
+    max-width: 75%;
   }
   .input-row input, .input-row button {
     font-size: 0.95rem;
@@ -84,9 +85,9 @@ body, html {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 
@@ -94,46 +95,63 @@ body, html {
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  height: 100%;
 }
 
 
 /* Message bubbles styled like ink stains */
 .msg {
-  max-width: 80%;
-  margin: 0.5rem 0;
-  padding: 0.7rem 1rem;
+  max-width: 65%;
+  margin: 0.25rem 0;  /* Reduced from 0.5rem to 0.25rem */
+  padding: 0.8rem 1.2rem;
   border-radius: 1rem;
   line-height: 1.5;
   font-size: 1.05rem;
   font-weight: 500;
   position: relative;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.18);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
   word-break: break-word;
   text-align: left;
 }
 
-
 .msg.assistant {
-  background: var(--bot);
+  background: rgba(230, 220, 197, 0.9);  /* Added opacity to var(--bot) */
   align-self: flex-start;
-  border: 2px solid #d2b48c;
+  border: 2px solid rgba(210, 180, 140, 0.8);  /* Added opacity to border */
 }
 
 .msg.user {
-  background: var(--user);
+  background: rgba(196, 138, 63, 0.9);  /* Added opacity to var(--user) */
   align-self: flex-end;
-  border: 2px solid #8b5a2b;
+  border: 2px solid rgba(139, 90, 43, 0.8);  /* Added opacity to border */
   color: #fff8dc;
+}
+
+/* Chat images */
+.image-container {
+  margin-top: 0.5rem;
+}
+
+.chat-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 0.5rem;
+  display: block;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Input row */
 .input-row {
   display: flex;
   gap: 0.5rem;
+  padding: 0.5rem;
+  background: #fffaf0;
+  border-top: 1px solid var(--accent);
 }
 
 .input-row input {
@@ -168,4 +186,39 @@ body, html {
 .input-row button:disabled {
   background: gray;
   cursor: not-allowed;
+}
+
+/* Chat layout */
+.chat {
+  position: relative;
+}
+
+/* Upload button styling */
+.upload-btn {
+  padding: 0.8rem !important;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem !important;
+}
+
+
+
+/* Image upload styling */
+.upload-btn {
+  padding: 0.8rem !important;
+  min-width: 45px;
+}
+
+.image-container {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.chat-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
 }

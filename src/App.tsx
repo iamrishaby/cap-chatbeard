@@ -7,7 +7,7 @@ export default function App() {
     <div className="app-bg">
       <div className="app-card">
         <header className="header">
-          ☠️ Cap’n Chatbeard
+          ☠️ Cap’n Chatbeard 
         </header>
         <ChatWindow />
       </div>
